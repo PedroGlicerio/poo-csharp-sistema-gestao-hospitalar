@@ -7,5 +7,12 @@ namespace GestaoHospitalar.Entities {
 
             Exames = exames;
         }
+        protected override decimal CustoBase() => CustoBase() * Exames;
+        public override decimal CustoTotal() {
+            throw new NotImplementedException();
+        }
+        public override TimeSpan Duracao() {
+            throw new NotImplementedException();
+        }
     }
 }

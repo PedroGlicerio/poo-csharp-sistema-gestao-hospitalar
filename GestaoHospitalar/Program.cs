@@ -7,6 +7,7 @@ class Program {
         List<Atendimento> atendimentos = new List<Atendimento>();
 
         Console.WriteLine("=== SISTEMA DE GESTÃO HOSPITALAR ===");
+
         Console.WriteLine();
 
         int quantidadeAtendimentos = LerNumeroInteiro("Quantos atendimentos serão cadastrados: ", "Quantidade inválida! Por favor, digite novamente.");
@@ -18,6 +19,27 @@ class Program {
             Console.WriteLine($"Atendimento #{i + 1}:");
             Atendimento atendimento = LerDadosPaciente();
             atendimentos.Add(atendimento);
+        }
+
+        Console.WriteLine();
+        Console.WriteLine("=== ATUALIZAÇÃO DE STATUS ===");
+        
+        foreach (var atendimento in atendimentos) {
+
+            Console.WriteLine();
+
+            Console.WriteLine($"{atendimento.ExibirStatusAtendimento()}");
+            StatusAtendimento novoStatus = LerEnum<StatusAtendimento>("Novo status [0 - Agendado | 1 - Em Atendimento | 2 - Finalizado]: ", "Status inválido! Por favor, digite novamente.");
+            atendimento.AtualizarStatus(novoStatus);
+        }
+
+        Console.WriteLine();
+        Console.WriteLine("=== RELATÓRIO DE ATENDIMENTOS ===");
+        Console.WriteLine();
+
+        foreach (var atendimento in atendimentos) {
+
+            Console.WriteLine($"{atendimento.ToString()}");
         }
 
         static string LerNome(string mensagem, string mensagemValidacao) {

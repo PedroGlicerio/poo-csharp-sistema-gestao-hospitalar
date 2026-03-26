@@ -7,5 +7,12 @@ namespace GestaoHospitalar.Entities {
 
             Diarias = diarias;
         }
+        protected override decimal CustoBase() => Diarias;
+        public override decimal CustoTotal() {
+            throw new NotImplementedException();
+        }
+        public override TimeSpan Duracao() {
+            throw new NotImplementedException();
+        }
     }
 }
