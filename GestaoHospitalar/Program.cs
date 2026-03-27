@@ -10,7 +10,7 @@ class Program {
 
         Console.WriteLine();
 
-        int quantidadeAtendimentos = LerNumeroInteiro("Quantos atendimentos serão cadastrados: ", "Quantidade inválida! Por favor, digite novamente.");
+        int quantidadeAtendimentos = LerNumeroInteiro("Quantos atendimentos serão cadastrados: ", "Quantidade inválida! Por favor, digite novamente.",  0, int.MaxValue);
 
         for (int i = 0; i < quantidadeAtendimentos; i++) {
 
@@ -106,7 +106,7 @@ class Program {
             return valor;
         }
 
-        static int LerNumeroInteiro(string mensagem, string mensagemValidacao) {
+        static int LerNumeroInteiro(string mensagem, string mensagemValidacao, int min, int max) {
 
             int numero;
             bool valido;
@@ -116,7 +116,7 @@ class Program {
                 Console.Write(mensagem);
                 valido = int.TryParse(Console.ReadLine(), NumberStyles.Integer, CultureInfo.InvariantCulture, out numero);
 
-                if (!valido || numero <= 0) {
+                if (!valido || numero <= min || numero > max) {
 
                     Console.WriteLine(mensagemValidacao);
                     valido = false;
@@ -142,12 +142,12 @@ class Program {
 
                 case TipoAtendimento.Exame:
 
-                    int exames = LerNumeroInteiro("Quantidade de exames: ", "Quantidade inválida! Por favor, digite novamente.");
+                    int exames = LerNumeroInteiro("Quantidade de exames: ", "Quantidade inválida! Por favor, digite novamente [entre 1 e 10].", 0, 10);
                     return new AtendimentoExame(paciente, cpf, prioridade, exames);
 
                 case TipoAtendimento.Internacao:
 
-                    int diarias = LerNumeroInteiro("Diárias: ", "Quantidade inválida! Por favor, digite novamente.");
+                    int diarias = LerNumeroInteiro("Diárias: ", "Quantidade inválida! Por favor, digite novamente [entre 1 e 30].", 0, 30);
                     return new AtendimentoInternacao(paciente, cpf, prioridade, diarias);
 
                 default:
