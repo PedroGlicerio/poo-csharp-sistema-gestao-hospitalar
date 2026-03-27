@@ -46,6 +46,7 @@ class Program {
         Console.WriteLine($"Consultas: R${atendimentos.Where(x => x.Tipo == TipoAtendimento.Consulta).Sum(x => x.CustoTotal()).ToString("F2", CultureInfo.InvariantCulture)}");
         Console.WriteLine($"Exames: R${atendimentos.Where(x => x.Tipo == TipoAtendimento.Exame).Sum(x => x.CustoTotal()).ToString("F2", CultureInfo.InvariantCulture)}");
         Console.WriteLine($"Internações: R${atendimentos.Where(x => x.Tipo == TipoAtendimento.Internacao).Sum(x => x.CustoTotal()).ToString("F2", CultureInfo.InvariantCulture)}");
+        Console.WriteLine($"Total geral: R${atendimentos.Sum(x => x.CustoTotal()).ToString("F2", CultureInfo.InvariantCulture)}");
 
         static string LerNome(string mensagem, string mensagemValidacao) {
 
