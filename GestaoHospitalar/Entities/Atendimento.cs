@@ -4,6 +4,7 @@ using GestaoHospitalar.Enums;
 using GestaoHospitalar.Services;
 
 namespace GestaoHospitalar.Entities {
+
     internal abstract class Atendimento {
 
         private static int contador = 1;
@@ -44,15 +45,22 @@ namespace GestaoHospitalar.Entities {
             Status = StatusAtendimento.Agendado;
             
         }
+
         public void AtualizarStatus(StatusAtendimento novoStatus) {
 
             Status = novoStatus;
         }
+
         public string ExibirStatusAtendimento() => $"[{Codigo}] {Paciente} — {Tipo} | {Prioridade} | Status: {Status.ToDisplayString()}";
+
         protected virtual decimal TaxaAdicional() => Prioridade == PrioridadeAtendimento.Urgente ? CustoBase() * 0.50m : 0m;
+
         protected abstract decimal CustoBase();
+
         public abstract TimeSpan Duracao();
+
         public abstract decimal CustoTotal(); 
+
         public override string ToString() {
             
             StringBuilder sb = new StringBuilder();

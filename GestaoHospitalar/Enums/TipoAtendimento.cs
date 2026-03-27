@@ -1,4 +1,5 @@
 ﻿namespace GestaoHospitalar.Enums {
+
     enum TipoAtendimento : int {
 
         Consulta = 0, 

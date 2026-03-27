@@ -1,7 +1,9 @@
 ﻿using System.Globalization;
 using GestaoHospitalar.Entities;
 using GestaoHospitalar.Enums;
+
 class Program {
+
     public static void Main(string[] args) {
 
         List<Atendimento> atendimentos = new List<Atendimento>();

@@ -4,12 +4,18 @@ using GestaoHospitalar.Enums;
 using GestaoHospitalar.Services;
 
 namespace GestaoHospitalar.Entities {
+
     internal class AtendimentoConsulta : Atendimento, IInformacao {
+
         public AtendimentoConsulta(string paciente, string cpf, PrioridadeAtendimento prioridade) : base(paciente, cpf, TipoAtendimento.Consulta, prioridade) {
         }
+
         protected override decimal CustoBase() => 200m;
+
         public override TimeSpan Duracao() => TimeSpan.FromHours(1);
+
         public override decimal CustoTotal() => CustoBase() + TaxaAdicional();
+
         public string LerInformacaoEspecifica() {
 
             StringBuilder sb = new StringBuilder();
