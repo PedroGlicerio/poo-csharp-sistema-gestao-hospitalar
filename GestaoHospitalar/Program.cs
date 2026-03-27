@@ -43,6 +43,7 @@ class Program {
         }
 
         Console.WriteLine($"Total de atendimentos: {atendimentos.Count}");
+        Console.WriteLine($"Consultas: R${atendimentos.Where(x => x.Tipo == TipoAtendimento.Consulta).Sum(x => x.CustoTotal()).ToString("F2", CultureInfo.InvariantCulture)}");
 
         static string LerNome(string mensagem, string mensagemValidacao) {
 
