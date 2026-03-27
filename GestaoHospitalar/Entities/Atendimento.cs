@@ -48,7 +48,7 @@ namespace GestaoHospitalar.Entities {
 
             Status = novoStatus;
         }
-        public string ExibirStatusAtendimento() => $"[{Codigo}] {Paciente} - {Tipo} | {Prioridade} | Status: {Status}";
+        public string ExibirStatusAtendimento() => $"[{Codigo}] {Paciente} — {Tipo} | {Prioridade} | Status: {Status.ToDisplayString()}";
         protected virtual decimal TaxaAdicional() => Prioridade == PrioridadeAtendimento.Urgente ? CustoBase() * 0.50m : 0m;
         protected abstract decimal CustoBase();
         public abstract TimeSpan Duracao();
@@ -68,7 +68,7 @@ namespace GestaoHospitalar.Entities {
                 sb.AppendLine(info.LerInformacaoEspecifica());
             }
 
-            sb.AppendLine($"Status: {Status}");
+            sb.AppendLine($"Status: {Status.ToDisplayString()}");
             sb.AppendLine(new string('-', 40));
 
             return sb.ToString();

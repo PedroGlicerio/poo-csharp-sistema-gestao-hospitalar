@@ -10,7 +10,7 @@ class Program {
 
         Console.WriteLine();
 
-        int quantidadeAtendimentos = LerNumeroInteiro("Quantos atendimentos serão cadastrados: ", "Quantidade inválida! Por favor, digite novamente.",  0, int.MaxValue);
+        int quantidadeAtendimentos = LerNumeroInteiro("Quantos atendimentos serão cadastrados: ", "Quantidade inválida! Por favor, digite um número maior que zero.",  0, int.MaxValue);
 
         for (int i = 0; i < quantidadeAtendimentos; i++) {
 
