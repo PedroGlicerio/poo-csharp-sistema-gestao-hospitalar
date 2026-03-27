@@ -24,6 +24,8 @@ namespace GestaoHospitalar.Entities {
 
             StringBuilder sb = new StringBuilder();
 
+            sb.AppendLine($"Diárias: {Diarias}");
+
             if (Prioridade == PrioridadeAtendimento.Urgente) {
 
                 sb.AppendLine($"Adicional urgente (30%): R${TaxaAdicional().ToString("F2", CultureInfo.InvariantCulture)}");

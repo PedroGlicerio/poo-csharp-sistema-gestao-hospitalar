@@ -37,9 +37,9 @@ class Program {
         Console.WriteLine("=== RELATÓRIO DE ATENDIMENTOS ===");
         Console.WriteLine();
 
-        foreach (var atendimento in atendimentos) {
+        foreach (var atendimento in atendimentos.OrderByDescending(x => x.Prioridade == PrioridadeAtendimento.Urgente).ThenByDescending(x => x.CustoTotal())) {
 
-            Console.WriteLine($"{atendimento.ToString()}");
+            Console.WriteLine($"{atendimento}");
         }
 
         Console.WriteLine($"Total de atendimentos: {atendimentos.Count}");
