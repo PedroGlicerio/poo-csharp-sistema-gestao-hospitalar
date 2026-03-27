@@ -42,6 +42,8 @@ class Program {
             Console.WriteLine($"{atendimento.ToString()}");
         }
 
+        Console.WriteLine($"Total de atendimentos: {atendimentos.Count}");
+
         static string LerNome(string mensagem, string mensagemValidacao) {
 
             string nome;
