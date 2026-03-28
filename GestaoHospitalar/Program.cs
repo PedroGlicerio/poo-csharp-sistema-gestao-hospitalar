@@ -60,7 +60,7 @@ class Program {
                 Console.Write(mensagem);
                 nome = Console.ReadLine();
 
-                valido = !string.IsNullOrEmpty(nome) && nome.All(x => char.IsLetter(x) || char.IsWhiteSpace(x));
+                valido = !string.IsNullOrWhiteSpace(nome) && nome.All(x => char.IsLetter(x) || char.IsWhiteSpace(x));
 
                 if (!valido) {
 
@@ -82,7 +82,7 @@ class Program {
                 Console.Write(mensagem);
                 cpf = Console.ReadLine();
 
-                valido = !string.IsNullOrEmpty(cpf) && cpf.Length == 11 && cpf.All(char.IsDigit);
+                valido = !string.IsNullOrWhiteSpace(cpf) && cpf.Length == 11 && cpf.All(char.IsDigit);
 
                 if (!valido) {
 
